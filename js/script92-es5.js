@@ -56,8 +56,8 @@ backAccounts.forEach(function (account, index) {
     let deposito = Math.floor(Math.random() * 100) + 1;
     let prelevo = Math.floor(Math.random() * 100) + 1;
 
-    console.log(account.deposita(deposito));
-    console.log(account.preleva(prelevo));
-    console.log(account.visualizzaSaldo());
-    console.log(account.calcolaInteressi());
+    account.deposita(deposito);
+    account.preleva(prelevo);
+    account.visualizzaSaldo();
+    account.calcolaInteressi();
 });
