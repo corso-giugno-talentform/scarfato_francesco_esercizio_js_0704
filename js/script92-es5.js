@@ -15,22 +15,28 @@ function Bank(account, number, balance) {
 
     this.deposita = function (deposito) {
         this.balance += deposito;
-        console.log(this.account + 'Deposito! ' + deposito);
+
+        console.log(this.balance);
+
+        console.log(`${this.account} deposita ${deposito}`);
     };
 
     this.preleva = function (prelevo) {
+        if (this.balance < prelevo) {
+            console.log(`Il tuo saldo è di ${this.balance} NON puoi prelevare ${prelevo}`);
+            return false;
+        }
         this.balance -= prelevo;
-
-        console.log(this.account + ' preleva! ' + prelevo);
+        console.log(`${this.account} preleva ${prelevo}`);
     };
 
     this.visualizzaSaldo = function () {
-        console.log(this.account + ' visualizzaSaldo! ' + this.balance);
+        console.log(`Visualizzo il saldo per ${this.account} pari a ${this.balance}`);
     };
 
     this.calcolaInteressi = function () {
         this.interessi = (this.balance * 1) / 100;
-        console.log('calcolaInteressi! ' + this.interessi);
+        console.log('Calcolo gli interessi! ' + this.interessi);
     };
 }
 
@@ -43,6 +49,10 @@ let backAccounts = [
 
 backAccounts.forEach(function (account, index) {
     console.log(account);
+    // let deposito = 100;
+    // let prelevo = 200;
+    // let prelevo = 200;
+
     let deposito = Math.floor(Math.random() * 100) + 1;
     let prelevo = Math.floor(Math.random() * 100) + 1;
 
